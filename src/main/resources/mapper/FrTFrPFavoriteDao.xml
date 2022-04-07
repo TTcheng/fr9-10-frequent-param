@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hand.modules.ds.dao.FrTFrPFavoriteDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.hand.modules.ds.entity.FrTFrPFavoriteEntity" id="frTFrPFavoriteMap">
+        <result property="id" column="id"/>
+        <result property="templateid" column="templateid"/>
+        <result property="username" column="username"/>
+        <result property="tpgroup" column="tpgroup"/>
+    </resultMap>
+
+    <insert id="batchInsertOrUpdate">
+        INSERT INTO finedb.fine_param_template(id, templateid, tpgroup, username)
+        values
+        <foreach collection="fineParamTemplateEntities" separator="," item="fine">
+            (#{fine.id},#{fine.templateid},#{fine.tpgroup},#{fine.username})
+        </foreach>
+        ON DUPLICATE KEY UPDATE tpgroup = values(tpgroup)
+    </insert>
+
+
+</mapper>

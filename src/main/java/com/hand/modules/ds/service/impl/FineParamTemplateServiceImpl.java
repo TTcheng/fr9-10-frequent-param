@@ -54,7 +54,7 @@ public class FineParamTemplateServiceImpl extends ServiceImpl<FineParamTemplateD
         //查出帆软9数据,数据量不大，一次性查出
         QueryWrapper<FrTFrPFavoriteEntity> queryWrapper = new QueryWrapper<>();
         int pageNum = 1;
-        final int pageSize = 1000;
+        final int pageSize = 500;
         Page<FrTFrPFavoriteEntity> page;
         do {
             page = PageHelper.startPage(pageNum, pageSize);

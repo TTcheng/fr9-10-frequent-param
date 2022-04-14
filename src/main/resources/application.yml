@@ -9,7 +9,7 @@ server:
 spring:
   # 环境 dev|test|prd
   profiles:
-    active: prd
+    active: dev
   # jackson时间格式化
   jackson:
     time-zone: GMT+8
@@ -43,4 +43,13 @@ mybatis-plus:
     call-setters-on-nulls: true
     jdbc-type-for-null: 'null'
     default-enum-type-handler: org.apache.ibatis.type.EnumOrdinalTypeHandler
-  #type-enums-package: com.hand.modules.*.constant
+pagehelper:
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
+  auto-dialect: true
+logging:
+  level:
+    root: info
+    com.hand: debug
+#type-enums-package: com.hand.modules.*.constant

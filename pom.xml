@@ -105,6 +105,19 @@
             <artifactId>pagehelper-spring-boot-starter</artifactId>
             <version>1.4.2</version>
         </dependency>
+        <dependency>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations</artifactId>
+            <version>RELEASE</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.fr</groupId>
+            <artifactId>core</artifactId>
+            <version>10.0-202108</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/lib/fine-core-10.0.jar</systemPath>
+        </dependency>
     </dependencies>
 
     <build>
@@ -121,7 +134,29 @@
                     </excludes>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+
         </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+            <resource>
+                <directory>lib</directory>
+                <targetPath>BOOT-INF/lib/</targetPath>
+                <includes>
+                    <include>*.jar</include>
+                </includes>
+            </resource>
+        </resources>
     </build>
 
 </project>
